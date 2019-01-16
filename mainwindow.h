@@ -18,10 +18,10 @@ public:
 private:
     Ui::MainWindow *ui;
     double value = 0.0;
-    bool addTrigger = false;
-    bool minusTrigger = false;
-    bool divideTrigger = false;
-    bool multTrigger = false;
+    bool addTrigger;
+    bool minusTrigger;
+    bool divideTrigger;
+    bool multTrigger;
 
 private slots:
     void NumButton();

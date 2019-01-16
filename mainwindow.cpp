@@ -48,6 +48,10 @@ void MainWindow::NumButton()
 
 void MainWindow::ArithmeticButton()
 {
+    addTrigger = false;
+    minusTrigger = false;
+    divideTrigger = false;
+    multTrigger = false;
 
     QString displayValue = ui->Display->text();
     value = displayValue.toDouble();
@@ -77,14 +81,20 @@ void MainWindow::EqualButton()
     double dblDisplayVal = displayVal.toDouble();
 
     if(addTrigger || minusTrigger || divideTrigger || multTrigger){
-        if(addTrigger)
+
+        if(addTrigger){
             sum = value + dblDisplayVal;
-        else if(minusTrigger)
+            addTrigger = false;
+        }else if(minusTrigger){
             sum = value - dblDisplayVal;
-        else if(divideTrigger)
+            minusTrigger = false;
+        }else if(divideTrigger){
             sum = value / dblDisplayVal;
-        else if(multTrigger)
+            divideTrigger = false;
+        }else if(multTrigger){
             sum = value * dblDisplayVal;
+            multTrigger = false;
+        }
     }
 
     ui->Display->setText(QString::number(sum));
